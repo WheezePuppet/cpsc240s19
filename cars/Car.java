@@ -64,11 +64,33 @@ class Car {
         galsRemaining = sizeOfTank;
     }
 
-    // Drive some number of miles. Currently we don't check to see whether
-    // this is actually possible with the current amount of gas. We'll fix
-    // that later.
     void drive(int numMiles) {
-        odo += numMiles;        
-        galsRemaining -= numMiles / gasMileage;
+        double galsBurned = numMiles / gasMileage;
+        galsRemaining = galsRemaining - galsBurned;
+        odo += numMiles;
     }
+
+
+    public String toString() {
+        return "a " + this.yearsOld + "-year-old " + this.make + " " + 
+            this.model + " with " + odo + " miles on it";
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

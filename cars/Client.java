@@ -17,5 +17,11 @@ class Client {
 
         System.out.println("Our tank is now " + lily.getTankPerc() +
             "% full.");
+
+
+        Car x = new Car("Ferrari","FX-7");
+        x.yearsOld = 3;
+        System.out.println("x = " + x);
+        System.out.println("lily = " + lily);
     }
 }
