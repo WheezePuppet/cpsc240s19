@@ -8,6 +8,14 @@ class Ball {
         airPressure = 0;
     }
 
+    public boolean equals(Ball other) {
+        if (this.color.equals(other.color) &&
+            this.airPressure == other.airPressure) {
+            return true;
+        }
+        return false;
+    }
+
     void bounce() {
         System.out.println("Boing!!");
     }
@@ -33,6 +41,19 @@ class Ball {
     public static void main(String args[]) {
         int x = 3;
         Ball myBall = play(2);
-        System.out.println("My ball is " + myBall.color + ".");
+        System.out.println("The ball is: " + myBall);
+
+        Ball otherBall = new Ball("orange");
+        if (myBall == otherBall) {
+            System.out.println("The two balls are the SAME.");
+        } else{
+            System.out.println("The two balls are NOT the SAME.");
+        }
+        if (myBall.equals(otherBall)) {
+            System.out.println("The two balls are IDENTICAL.");
+        } else{
+            System.out.println("The two balls are NOT IDENTICAL.");
+        }
+
     }
 }
