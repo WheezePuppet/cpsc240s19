@@ -64,8 +64,11 @@ class Car {
         galsRemaining = sizeOfTank;
     }
 
-    void drive(int numMiles) {
+    void drive(int numMiles) throws Exception {
         double galsBurned = numMiles / gasMileage;
+        if (galsBurned > galsRemaining) {
+            throw new Exception("Not enough gas!!");
+        }
         galsRemaining = galsRemaining - galsBurned;
         odo += numMiles;
     }

@@ -13,7 +13,11 @@ class Client {
         System.out.println("Our tank starts at " + lily.getTankPerc() +
             "% full.");
 
-        lily.drive(50);
+        try {
+            lily.drive(5000000);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } 
 
         System.out.println("Our tank is now " + lily.getTankPerc() +
             "% full.");
