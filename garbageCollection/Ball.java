@@ -26,7 +26,7 @@ class Ball {
     }
 
     static Ball play(int numBalls) {
-        ArrayList equipment = new ArrayList();
+        java.util.ArrayList<Ball> equipment = new java.util.ArrayList<Ball>();
         Ball b;
         int i;
         for (i=0; i<numBalls; i++) {
@@ -34,6 +34,7 @@ class Ball {
             b.bounce();
             equipment.add(b);
         }
+        //equipment.add("Whoopie!");    <--- will not compile, by design
         Ball basket = new Ball("orange");
         return basket;
     }
