@@ -12,6 +12,11 @@ class Ball {
         System.out.println("Boing!!");
     }
 
+    public String toString() {
+        return "a " + this.color + " ball with " + airPressure +
+            " pounds of pressure.";
+    }
+
     static Ball play(int numBalls) {
         ArrayList equipment = new ArrayList();
         Ball b;
