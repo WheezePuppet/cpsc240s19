@@ -1,31 +1,78 @@
 
-// Some sample "client code" to exercise our Car class and its methods.
+import java.util.ArrayList;
+
+// Some sample "client code" to test equality and sorting of Cars.
 class Client {
 
     public static void main(String args[]) {
 
-        Car lily = new Car("Honda","Fitt");
-
-        System.out.println("There are " + Car.getNum() + " cars so far.");
-
-        lily.fillUp();
-
-        System.out.println("Our tank starts at " + lily.getTankPerc() +
-            "% full.");
+        Car stephen = new Car("Chevy","Malibu");
+        Car rae = new Car("Toyota","Sienna");
+        Car jeff = new Car("Mazda","RX-7");
+        Car tj = stephen;
+        Car bob = new Car("Chevy","Malibu");
+        bob.yearsOld = 47;
+        stephen.yearsOld = 14;
+        
+        stephen.fillUp();
+        rae.fillUp();
+        jeff.fillUp();
+        bob.fillUp();
+        tj.fillUp();
 
         try {
-            lily.drive(5000000);
+            stephen.drive(10);
+            rae.drive(40);
+            jeff.drive(100);
+            jeff.drive(100);
+            bob.drive(1);
+            tj.drive(15);
         } catch (Exception e) {
-            e.printStackTrace();
-        } 
-
-        System.out.println("Our tank is now " + lily.getTankPerc() +
-            "% full.");
+            System.out.println("Not enough gas!!");
+            return;
+        }
 
 
-        Car x = new Car("Ferrari","FX-7");
-        x.yearsOld = 3;
-        System.out.println("x = " + x);
-        System.out.println("lily = " + lily);
+        ArrayList<Car> cars = new ArrayList<Car>();
+        cars.add(stephen);
+        cars.add(rae);
+        cars.add(jeff);
+        cars.add(tj);
+        cars.add(bob);
+
+        java.util.Collections.sort(cars);
+
+        for (Car c: cars) {
+            System.out.println(c);
+        }
+
+        if (stephen == rae) {
+            System.out.println("a");
+        }
+        if (stephen == jeff) {
+            System.out.println("b");
+        }
+        if (stephen == tj) {
+            System.out.println("c");
+        }
+        if (tj == bob) {
+            System.out.println("d");
+        }
+        if (tj == rae) {
+            System.out.println("e");
+        }
+        if (stephen == rae) {
+            System.out.println("f");
+        }
+        if (stephen.equals(rae)) {
+            System.out.println("g");
+        }
+        if (stephen.equals(tj)) {
+            System.out.println("h");
+        }
+        if (stephen.equals(bob)) {
+            System.out.println("i");
+        }
     }
+
 }

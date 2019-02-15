@@ -1,5 +1,8 @@
 
-class Car {
+// "Implement" the "Comparable" interface so that we can sort Car objects
+// according to our needs. (We'll learn exactly what that means later. For now,
+// just accept the following class declaration on faith.)
+class Car implements Comparable<Car> {
 
     // These are inst vars because they're defined in a class, but outside of
     // any method.
@@ -7,6 +10,44 @@ class Car {
     int yearsOld, odo;
     double galsRemaining, sizeOfTank, gasMileage;
     static int num;
+
+    // Tell Java what it means for one Car to be "before" another in sorted
+    // order.
+    public int compareTo(Car other) {
+        // Sort in increasing order by odometer.
+        return this.odo - other.odo;
+        
+        // Sort in decreasing order by age.
+        //return other.yearsOld - this.yearsOld;
+        
+        // Sort alphabetically by make.
+        //return this.make.compareTo(other.make);
+       
+        // Sort reverse alphabetically by model.
+        //return this.model.compareTo(other.model);
+    }
+
+    // Tell Java what it means for one Car to be "equal" to another.
+    public boolean equals(Car other) {
+        // Car objects are only considered "identical" if they have absolutely
+        // every inst var the same.
+        return this.make.equals(other.make) &&
+            this.model.equals(other.model) &&
+            this.yearsOld == other.yearsOld &&
+            this.odo == other.odo &&
+            this.galsRemaining == other.galsRemaining &&
+            this.sizeOfTank == other.sizeOfTank &&
+            this.gasMileage == other.gasMileage;
+
+        // Car objects are considered "identical" if they have the same make
+        // and model.
+        //return this.make.equals(other.make) &&
+        //    this.model.equals(other.model);
+
+        // All Car objects are considered "identical" just by virtue of being
+        // Car objects.
+        //return true;
+    }
 
     // Constructor. Since this is the only constructor, it's the only way to
     // instantiate Car objects. (You can't do "new Car()" with no arguments,
@@ -78,22 +119,5 @@ class Car {
         return "a " + this.yearsOld + "-year-old " + this.make + " " + 
             this.model + " with " + odo + " miles on it";
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }
