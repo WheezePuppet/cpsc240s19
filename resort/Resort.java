@@ -9,9 +9,12 @@ class Resort {
     private int cost;
     private String description;
 
-    public Resort(Scanner s) {
+    public Resort(Scanner s) throws Exception {
 
         name = s.nextLine();
+        if (name.equals("-END-")) {
+            throw new Exception();
+        }
         phone = s.nextLine();
 
         // Another way to do this would be:
@@ -29,20 +32,17 @@ class Resort {
             description += "\n" + harrison;
             harrison = s.nextLine();
         }
-
-        // Make sure all the above worked.
-        System.out.println("name = " + name);
-        System.out.println("phone = " + phone);
-        System.out.println("rating = " + rating);
-        System.out.println("cost = " + cost);
-        System.out.println("description = " + description);
     }
 
+    public String toString() {
+        return name + " (a " + rating + "-star resort!)";
+    }
 
     public static void main(String args[]) {
         try {
             Scanner s = new Scanner(new File("westword.dat"));
             Resort r = new Resort(s);
+            System.out.println(r);
             s.close();
         } catch (Exception e) {
             System.out.println(e);
