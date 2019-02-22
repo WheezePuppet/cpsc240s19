@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.io.File;
 
 class ReservationSystem {
+
+    private ArrayList<Resort> resorts = new ArrayList<Resort>();
+
     public static void main(String args[]) {
         if (args.length == 0) {
             System.out.println("Usage: ReservationSystem resortsFile.dat");
@@ -11,15 +14,22 @@ class ReservationSystem {
         }
         try {
             Scanner s = new Scanner(new File(args[0]));
-    
+            ReservationSystem rs = new ReservationSystem(s);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
+    public ReservationSystem(Scanner s) {
+
+        try {
             String thomas = s.nextLine();
             while (!hasOnlyHyphens(thomas)) {
                 thomas = s.nextLine();
             }
 
-            ArrayList<Resort> resorts = new ArrayList<Resort>();
-
             /* Jordan's way: */
+/*
             while (true) {
                 try {
                     Resort r = new Resort(s);
@@ -29,6 +39,7 @@ class ReservationSystem {
                     break;
                 }
             }
+*/
 
             /* Stephen's way: */
             try {
