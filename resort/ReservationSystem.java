@@ -2,6 +2,7 @@
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.io.File;
+import java.io.PrintWriter;
 
 class ReservationSystem {
 
@@ -52,6 +53,13 @@ class ReservationSystem {
             }
 
             System.out.println("What reservation do you want to make?");
+
+            PrintWriter pw = new PrintWriter(new File("output.dat"));
+            for (Resort r: resorts) {
+                r.persist(pw);
+            }
+            pw.close();
+
         } catch (Exception e) {
             System.out.println(e);
         }

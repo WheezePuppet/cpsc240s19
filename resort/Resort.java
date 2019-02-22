@@ -1,6 +1,7 @@
 
 import java.util.Scanner;
 import java.io.File;
+import java.io.PrintWriter;
 
 class Resort {
     private String name;
@@ -32,6 +33,18 @@ class Resort {
             description += "\n" + harrison;
             harrison = s.nextLine();
         }
+    }
+
+    public void persist(PrintWriter pw) {
+        pw.println(name);
+        pw.println(phone);
+        pw.println(rating);
+        for (int i=0; i<cost; i++) {
+            pw.print("$");
+        }
+        pw.println();
+        pw.println(description);
+        pw.println(".");
     }
 
     public String toString() {
